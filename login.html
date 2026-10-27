@@ -1,138 +1,84 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Login | Velvet Set</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
 <style>
-:root {
-    --pink: #ff8fb3;
-    --pink-dark: #e86f99;
-    --pink-light: #fff0f5;
-    --yellow: #ffe28a;
-    --yellow-light: #fff9df;
-    --text: #674555;
+*{box-sizing:border-box}
+body{
+  margin:0;min-height:100vh;display:flex;
+  justify-content:center;align-items:center;
+  background:linear-gradient(135deg,#fff7f2,#ffe4e8,#fff0c9);
+  font-family:Arial,sans-serif;color:#553943;padding:20px
 }
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.card{
+  width:100%;max-width:390px;background:#fffdfb;
+  padding:32px;border-radius:24px;
+  box-shadow:0 12px 35px #a76c7725;text-align:center
 }
-
-body {
-    font-family: 'Nunito', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 25px;
-    background: linear-gradient(
-        135deg,
-        #ffe2ed,
-        #fff7d8,
-        #ffdce8
-    );
-    overflow-x: hidden;
+.logo{font-size:30px;font-weight:bold;color:#b65f7a;margin-bottom:8px}
+.subtitle{color:#987b83;font-size:14px;margin-bottom:26px}
+label{display:block;text-align:left;font-size:14px;margin:14px 0 7px}
+input{
+  width:100%;padding:13px;border:1px solid #f0cbd4;
+  border-radius:12px;outline:none;font-size:15px
 }
-
-/* Hiasan background */
-
-.decoration {
-    position: fixed;
-    font-size: 45px;
-    opacity: .65;
-    animation: float 4s ease-in-out infinite;
-    pointer-events: none;
+input:focus{border-color:#d984a0}
+button{
+  width:100%;padding:14px;border:0;border-radius:12px;
+  background:#d984a0;color:white;font-size:16px;
+  font-weight:bold;cursor:pointer;margin-top:22px
 }
+button:hover{background:#c86e8c}
+.message{font-size:13px;margin-top:14px;min-height:16px}
+.back{display:inline-block;margin-top:20px;color:#a85875;text-decoration:none;font-size:14px}
+.hint{font-size:12px;color:#9a858a;margin-top:18px}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">♡ Velvet Set</div>
+  <div class="subtitle">Welcome back! Login dulu, yuk ✨</div>
 
-.d1 {
-    top: 10%;
-    left: 9%;
-}
+  <form id="login-form">
+    <label for="username">Username</label>
+    <input id="username" type="text" placeholder="Masukkan username" required>
 
-.d2 {
-    top: 20%;
-    right: 10%;
-    animation-delay: 1s;
-}
+    <label for="password">Password</label>
+    <input id="password" type="password" placeholder="Masukkan password" required>
 
-.d3 {
-    bottom: 13%;
-    left: 13%;
-    animation-delay: 2s;
-}
+    <button type="submit">Login</button>
+    <div class="message" id="message"></div>
+  </form>
 
-.d4 {
-    bottom: 12%;
-    right: 12%;
-    animation-delay: .5s;
-}
+  <a class="back" href="velvet.store.html">← Kembali ke toko</a>
+  <div class="hint">Demo login: velvet / 12345</div>
+</div>
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0) rotate(-5deg);
-    }
-    50% {
-        transform: translateY(-15px) rotate(5deg);
-    }
-}
+<script>
+document.getElementById("login-form").addEventListener("submit", function(event) {
+  event.preventDefault();
 
-/* Login card */
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value;
+  const message = document.getElementById("message");
 
-.login-container {
-    width: 100%;
-    max-width: 420px;
-    background: rgba(255,255,255,.94);
-    border: 2px solid white;
-    border-radius: 30px;
-    padding: 38px 32px;
-    box-shadow: 0 20px 60px rgba(205, 119, 151, .22);
-    position: relative;
-    z-index: 1;
-    animation: appear .8s ease;
-}
+  if (username === "velvet" && password === "12345") {
+    localStorage.setItem("velvetLoggedIn", "true");
+    localStorage.setItem("velvetUsername", username);
 
-@keyframes appear {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+    message.style.color = "#42845a";
+    message.textContent = "Login berhasil! Mengalihkan ke toko...";
 
-.logo-icon {
-    width: 90px;
-    height: 90px;
-    margin: 0 auto 12px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #ffd2e2, #fff0a9);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 45px;
-    box-shadow: 0 8px 20px #f3bed155;
-}
-
-.brand {
-    text-align: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    color: var(--pink-dark);
-}
-
-.brand span {
-    color: #dfb43e;
-}
-
-.subtitle {
-    text-align: center;
-   
+    setTimeout(function() {
+      window.location.href = "velvet.store.html";
+    }, 700);
+  } else {
+    message.style.color = "#bd4564";
+    message.textContent = "Username atau password salah!";
+  }
+});
+</script>
+</body>
+</html>
