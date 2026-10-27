@@ -1,1 +1,736 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velvet Set | Cute Cardigan Shop</title>
 
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+    --pink: #ff8fb3;
+    --pink-light: #fff0f5;
+    --yellow: #ffe17b;
+    --yellow-light: #fffbea;
+    --text: #573c49;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--pink-light);
+    color: var(--text);
+    transition: .3s;
+}
+
+body.yellow-theme {
+    background: var(--yellow-light);
+}
+
+header {
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,.85);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 3px 18px #e8b6c633;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 29px;
+    font-weight: bold;
+    color: #ed79a1;
+}
+
+.logo span {
+    color: #e4b934;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 800;
+}
+
+nav a:hover {
+    color: #ed79a1;
+}
+
+.theme-btn, .cart-btn {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 25px;
+    background: var(--pink);
+    color: white;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 800;
+}
+
+.theme-btn {
+    background: var(--yellow);
+    color: #725527;
+}
+
+.hero {
+    padding: 65px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+    min-height: 460px;
+    background: linear-gradient(120deg, #ffe1eb, #fff6cb);
+}
+
+.hero-text {
+    max-width: 550px;
+}
+
+.badge {
+    display: inline-block;
+    background: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    color: #e7789e;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 6vw, 70px);
+    line-height: 1.12;
+    margin-bottom: 18px;
+}
+
+.hero h1 span {
+    color: #ec83a6;
+}
+
+.hero p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.shop-btn {
+    display: inline-block;
+    background: #f58bad;
+    color: white;
+    padding: 14px 25px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 900;
+    box-shadow: 0 6px 15px #ee9dbb66;
+    transition: .2s;
+}
+
+.shop-btn:hover {
+    transform: translateY(-3px);
+}
+
+.hero-art {
+    width: 330px;
+    height: 330px;
+    min-width: 240px;
+    border-radius: 50%;
+    background: linear-gradient(140deg, #ffc5d9, #fff0a8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 145px;
+    box-shadow: 0 15px 35px #d89bad44;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 28px 6%;
+    background: white;
+}
+
+.feature {
+    font-weight: 800;
+    text-align: center;
+    padding: 8px 18px;
+}
+
+.section {
+    padding: 65px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #987786;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.product {
+    background: white;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px #d9a9b622;
+    transition: .25s;
+}
+
+.product:hover {
+    transform: translateY(-6px);
+}
+
+.product-image {
+    height: 230px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    position: relative;
+}
+
+.pink-bg {
+    background: #ffe0ea;
+}
+
+.yellow-bg {
+    background: #fff2bd;
+}
+
+.cream-bg {
+    background: #f9e9df;
+}
+
+.new-label {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    font-size: 12px;
+    font-weight: 900;
+    background: white;
+    color: #e8789d;
+    padding: 6px 11px;
+    border-radius: 15px;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-info h3 {
+    font-size: 19px;
+    margin-bottom: 7px;
+}
+
+.description {
+    font-size: 13px;
+    color: #987786;
+    margin-bottom: 14px;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: 900;
+    color: #e7789e;
+    margin-bottom: 15px;
+}
+
+.color-title {
+    font-size: 13px;
+    font-weight: 800;
+    margin-bottom: 9px;
+}
+
+.colors {
+    display: flex;
+    gap: 9px;
+    margin-bottom: 18px;
+}
+
+.color-option {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 3px solid white;
+    outline: 1px solid #ddd;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.color-option.active {
+    outline: 2px solid #d77e9a;
+    transform: scale(1.12);
+}
+
+.pink {
+    background: #ff9dbd;
+}
+
+.yellow {
+    background: #ffe17b;
+}
+
+.cream {
+    background: #f1dfc7;
+}
+
+.add-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 13px;
+    background: #ff91b5;
+    color: white;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.add-btn:hover {
+    background: #ed709b;
+}
+
+.cart-section {
+    background: white;
+    border-radius: 22px;
+    padding: 28px;
+    margin-top: 20px;
+}
+
+.cart-section h3 {
+    margin-bottom: 18px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid #f6e4eb;
+}
+
+.remove-btn {
+    background: #fff0f5;
+    color: #d75e87;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.total {
+    text-align: right;
+    font-size: 21px;
+    font-weight: 900;
+    margin: 22px 0;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    background: #ffe17b;
+    color: #725527;
+    border-radius: 13px;
+    font-family: inherit;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.empty {
+    color: #a58a96;
+    padding: 10px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 15px;
+    background: #ffe3ec;
+    line-height: 2;
+}
+
+footer strong {
+    color: #df7199;
+}
+
+@media(max-width: 850px) {
+    header {
+        padding: 15px 5%;
+    }
+
+    nav {
+        gap: 10px;
+    }
+
+    nav a {
+        display: none;
+    }
+
+    .hero {
+        padding: 45px 7%;
+    }
+
+    .hero-art {
+        width: 240px;
+        height: 240px;
+        font-size: 100px;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media(max-width: 560px) {
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero-art {
+        min-width: 0;
+        width: 210px;
+        height: 210px;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 45px 6%;
+    }
+
+    .section-title h2 {
+        font-size: 30px;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Velvet <span>Set ♡</span></div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#cart">Keranjang</a>
+
+        <button class="theme-btn" onclick="toggleTheme()">
+            🎨 Tema
+        </button>
+
+        <button class="cart-btn" onclick="scrollToCart()">
+            🛍️ <span id="cart-count">0</span>
+        </button>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-text">
+        <span class="badge">🎀 YOUR DAILY CUTE OUTFIT</span>
+
+        <h1>Stay Cute,<br><span>Stay Velvet!</span></h1>
+
+        <p>
+            Temukan cardigan favoritmu dengan warna pastel
+            yang manis. Pink yang lembut atau kuning yang ceria?
+            Pilih gaya yang paling menggambarkan dirimu!
+        </p>
+
+        <a href="#shop" class="shop-btn">Explore Collection ♡</a>
+    </div>
+
+    <div class="hero-art" aria-label="Ilustrasi cardigan">
+        🧥
+    </div>
+</section>
+
+<div class="features">
+    <div class="feature">🎀 Cute Style</div>
+    <div class="feature">💗 Soft Colors</div>
+    <div class="feature">📦 Easy Shopping</div>
+    <div class="feature">🌼 Made for You</div>
+</div>
+
+<section class="section" id="shop">
+    <div class="section-title">
+        <h2>Our Sweet Collection ♡</h2>
+        <p>Cardigan manis untuk menemani hari-harimu.</p>
+    </div>
+
+    <div class="products">
+
+        <article class="product" data-id="1">
+            <div class="product-image pink-bg">
+                <span class="new-label">BEST SELLER</span>
+                🧥
+            </div>
+
+            <div class="product-info">
+                <h3>Lovely Knit Cardigan</h3>
+                <p class="description">Cardigan rajut lembut dengan gaya feminin.</p>
+                <div class="price">Rp89.000</div>
+
+                <p class="color-title">Pilih warna:</p>
+                <div class="colors">
+                    <button class="color-option pink active"
+                        aria-label="Pink"
+                        onclick="selectColor(1,'Pink',this)"></button>
+
+                    <button class="color-option yellow"
+                        aria-label="Kuning"
+                        onclick="selectColor(1,'Kuning',this)"></button>
+                </div>
+
+                <button class="add-btn" onclick="addToCart(1)">
+                    + Tambah ke Keranjang
+                </button>
+            </div>
+        </article>
+
+        <article class="product" data-id="2">
+            <div class="product-image yellow-bg">
+                <span class="new-label">NEW ARRIVAL</span>
+                🧶
+            </div>
+
+            <div class="product-info">
+                <h3>Buttercup Cardigan</h3>
+                <p class="description">Model simpel dengan nuansa pastel ceria.</p>
+                <div class="price">Rp99.000</div>
+
+                <p class="color-title">Pilih warna:</p>
+                <div class="colors">
+                    <button class="color-option pink active"
+                        aria-label="Pink"
+                        onclick="selectColor(2,'Pink',this)"></button>
+
+                    <button class="color-option yellow"
+                        aria-label="Kuning"
+                        onclick="selectColor(2,'Kuning',this)"></button>
+                </div>
+
+                <button class="add-btn" onclick="addToCart(2)">
+                    + Tambah ke Keranjang
+                </button>
+            </div>
+        </article>
+
+        <article class="product" data-id="3">
+            <div class="product-image cream-bg">
+                <span class="new-label">FAVORITE</span>
+                🎀
+            </div>
+
+            <div class="product-info">
+                <h3>Ribbon Cozy Cardigan</h3>
+                <p class="description">Cardigan cozy untuk penampilan yang manis.</p>
+                <div class="price">Rp109.000</div>
+
+                <p class="color-title">Pilih warna:</p>
+                <div class="colors">
+                    <button class="color-option pink active"
+                        aria-label="Pink"
+                        onclick="selectColor(3,'Pink',this)"></button>
+
+                    <button class="color-option yellow"
+                        aria-label="Kuning"
+                        onclick="selectColor(3,'Kuning',this)"></button>
+                </div>
+
+                <button class="add-btn" onclick="addToCart(3)">
+                    + Tambah ke Keranjang
+                </button>
+            </div>
+        </article>
+
+    </div>
+
+    <div class="cart-section" id="cart">
+        <h3>🛍️ Keranjang Belanja</h3>
+
+        <div id="cart-items">
+            <p class="empty">Keranjangmu masih kosong, yuk pilih cardigan! ♡</p>
+        </div>
+
+        <div class="total">
+            Total: <span id="cart-total">Rp0</span>
+        </div>
+
+        <button class="checkout-btn" onclick="checkout()">
+            Checkout via WhatsApp ♡
+        </button>
+    </div>
+</section>
+
+<footer>
+    <strong>Velvet Set ♡</strong><br>
+    Soft colors, sweet moments, lovely outfits.<br>
+    Made with love 🎀
+</footer>
+
+<script>
+const products = [
+    { id: 1, name: "Lovely Knit Cardigan", price: 89000 },
+    { id: 2, name: "Buttercup Cardigan", price: 99000 },
+    { id: 3, name: "Ribbon Cozy Cardigan", price: 109000 }
+];
+
+let selectedColors = {
+    1: "Pink",
+    2: "Pink",
+    3: "Pink"
+};
+
+let cart = [];
+
+function toggleTheme() {
+    document.body.classList.toggle("yellow-theme");
+}
+
+function selectColor(id, color, button) {
+    selectedColors[id] = color;
+
+    const product = document.querySelector(
+        `.product[data-id="${id}"]`
+    );
+
+    product.querySelectorAll(".color-option").forEach(option => {
+        option.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    const image = product.querySelector(".product-image");
+
+    image.classList.remove("pink-bg", "yellow-bg", "cream-bg");
+
+    image.classList.add(
+        color === "Pink" ? "pink-bg" : "yellow-bg"
+    );
+}
+
+function formatRupiah(number) {
+    return new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR",
+        maximumFractionDigits: 0
+    }).format(number);
+}
+
+function addToCart(id) {
+    const product = products.find(item => item.id === id);
+    const color = selectedColors[id];
+
+    const existing = cart.find(item =>
+        item.id === id && item.color === color
+    );
+
+    if (existing) {
+        existing.quantity++;
+    } else {
+        cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            color: color,
+            quantity: 1
+        });
+    }
+
+    renderCart();
+    alert(product.name + " warna " + color + " ditambahkan! ♡");
+}
+
+function changeQuantity(id, color, amount) {
+    const item = cart.find(item =>
+        item.id === id && item.color === color
+    );
+
+    if (!item) return;
+
+    item.quantity += amount;
+
+    if (item.quantity <= 0) {
+        cart = cart.filter(item =>
+            !(item.id === id && item.color === color)
+        );
+    }
+
+    renderCart();
+}
+
+function renderCart() {
+    const container = document.getElementById("cart-items");
+    const count = cart.reduce(
+        (sum, item) => sum + item.quantity, 0
+    );
+
+    const total = cart.reduce(
+        (sum, item) => sum + item.price * item.quantity, 0
+    );
+
+    document.getElementById("cart-count").textContent = count;
+    document.getElementById("cart-total").textContent =
+        formatRupiah(total);
+
+    if (cart.length === 0) {
+        container.innerHTML =
+            '<p class="empty">Keranjangmu masih kosong, yuk pilih cardigan! ♡</p>';
+        return;
+    }
+
+    container.innerHTML = cart.map(item => `
+        <div class="cart-item">
+            <div>
+                <strong>${item.name}</strong><br>
+                <small>Warna: ${item.color}</small><br>
+                <small>${formatRupiah(item.price)} × ${item.quantity}</small>
+            </div>
+
+            <div style="display:flex;gap:6px;align-items:center">
+                <button class="remove-btn"
+                    onclick="changeQuantity(${item.id},'${item.color}',-1)">−
