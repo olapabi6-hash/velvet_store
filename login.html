@@ -1,1 +1,138 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Login | Velvet Set</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --pink: #ff8fb3;
+    --pink-dark: #e86f99;
+    --pink-light: #fff0f5;
+    --yellow: #ffe28a;
+    --yellow-light: #fff9df;
+    --text: #674555;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    background: linear-gradient(
+        135deg,
+        #ffe2ed,
+        #fff7d8,
+        #ffdce8
+    );
+    overflow-x: hidden;
+}
+
+/* Hiasan background */
+
+.decoration {
+    position: fixed;
+    font-size: 45px;
+    opacity: .65;
+    animation: float 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.d1 {
+    top: 10%;
+    left: 9%;
+}
+
+.d2 {
+    top: 20%;
+    right: 10%;
+    animation-delay: 1s;
+}
+
+.d3 {
+    bottom: 13%;
+    left: 13%;
+    animation-delay: 2s;
+}
+
+.d4 {
+    bottom: 12%;
+    right: 12%;
+    animation-delay: .5s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+}
+
+/* Login card */
+
+.login-container {
+    width: 100%;
+    max-width: 420px;
+    background: rgba(255,255,255,.94);
+    border: 2px solid white;
+    border-radius: 30px;
+    padding: 38px 32px;
+    box-shadow: 0 20px 60px rgba(205, 119, 151, .22);
+    position: relative;
+    z-index: 1;
+    animation: appear .8s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo-icon {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffd2e2, #fff0a9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+    box-shadow: 0 8px 20px #f3bed155;
+}
+
+.brand {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: var(--pink-dark);
+}
+
+.brand span {
+    color: #dfb43e;
+}
+
+.subtitle {
+    text-align: center;
+   
