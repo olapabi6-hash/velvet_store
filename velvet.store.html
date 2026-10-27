@@ -457,6 +457,7 @@ footer strong {
         <a href="#home">Home</a>
         <a href="#shop">Shop</a>
         <a href="#cart">Keranjang</a>
+        <a href="login.html" id="login-link">Login</a>
 
         <button class="theme-btn" onclick="toggleTheme()">
             🎨 Tema
@@ -734,3 +735,57 @@ function renderCart() {
             <div style="display:flex;gap:6px;align-items:center">
                 <button class="remove-btn"
                     onclick="changeQuantity(${item.id},'${item.color}',-1)">−
+                    Hapus
+                </button>
+                <span>${item.quantity}</span>
+                <button class="remove-btn"
+                    onclick="changeQuantity(${item.id},'${item.color}',1)">+</button>
+            </div>
+        </div>
+    `).join("");
+}
+
+function scrollToCart() {
+    document.getElementById("cart").scrollIntoView({ behavior: "smooth" });
+}
+
+function checkout() {
+    if (cart.length === 0) {
+        alert("Keranjang masih kosong. Pilih cardigan dulu ya! ♡");
+        return;
+    }
+
+    const orderLines = cart.map(item =>
+        `${item.name} - ${item.color} x${item.quantity} = ${formatRupiah(item.price * item.quantity)}`
+    );
+    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const message = `Halo Velvet Set! Saya mau pesan:\n\n${orderLines.join("\n")}\n\nTotal: ${formatRupiah(total)}`;
+    const whatsappNumber = "6281234567890"; // Ganti dengan nomor WhatsApp toko kamu
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank");
+}
+
+function updateLoginLink() {
+    const link = document.getElementById("login-link");
+    if (!link) return;
+
+    if (localStorage.getItem("velvetLoggedIn") === "true") {
+        link.textContent = "Logout";
+        link.href = "#";
+        link.onclick = function (event) {
+            event.preventDefault();
+            localStorage.removeItem("velvetLoggedIn");
+            localStorage.removeItem("velvetUsername");
+            alert("Kamu sudah logout.");
+            window.location.reload();
+        };
+    } else {
+        link.textContent = "Login";
+        link.href = "login.html";
+        link.onclick = null;
+    }
+}
+
+updateLoginLink();
+</script>
+</body>
+</html>
