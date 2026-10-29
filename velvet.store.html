@@ -1,10 +1,8 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Velvet Set | Cute Cardigan Shop</title>
 
 <style>
@@ -44,7 +42,8 @@ header {
     justify-content: space-between;
     align-items: center;
     gap: 15px;
-    background: rgba(255,255,255,.95);
+    flex-wrap: wrap;
+    background: rgba(255,255,255,.96);
     position: sticky;
     top: 0;
     z-index: 10;
@@ -66,7 +65,7 @@ header {
 nav {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
     flex-wrap: wrap;
 }
 
@@ -80,8 +79,7 @@ nav a:hover {
     color: #ed79a1;
 }
 
-.theme-btn,
-.cart-btn {
+.theme-btn, .cart-btn {
     border: 0;
     padding: 10px 15px;
     border-radius: 25px;
@@ -96,7 +94,7 @@ nav a:hover {
     color: #725527;
 }
 
-/* HERO / HALAMAN DEPAN */
+/* HALAMAN DEPAN */
 
 .hero {
     padding: 65px 8%;
@@ -105,7 +103,7 @@ nav a:hover {
     justify-content: space-between;
     gap: 35px;
     min-height: 440px;
-    background: linear-gradient(120deg, #ffe1eb, #fff6cb);
+    background: linear-gradient(120deg,#ffe1eb,#fff6cb);
 }
 
 .hero-text {
@@ -124,7 +122,7 @@ nav a:hover {
 
 .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(42px, 6vw, 70px);
+    font-size: clamp(42px,6vw,70px);
     line-height: 1.12;
     margin-bottom: 18px;
 }
@@ -155,14 +153,14 @@ nav a:hover {
     transform: translateY(-3px);
 }
 
-/* GAMBAR ICON.Jpg */
+/* GAMBAR DEPAN icon.jpg */
 
 .hero-art {
     width: 350px;
     height: 350px;
     min-width: 230px;
     border-radius: 50%;
-    background: linear-gradient(140deg, #ffc5d9, #fff0a8);
+    background: linear-gradient(140deg,#ffc5d9,#fff0a8);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -174,11 +172,11 @@ nav a:hover {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    padding: 15px;
+    padding: 12px;
     display: block;
 }
 
-/* FITUR */
+/* FITUR TOKO */
 
 .features {
     display: flex;
@@ -195,7 +193,7 @@ nav a:hover {
     padding: 8px 18px;
 }
 
-/* BAGIAN PRODUK */
+/* PRODUK */
 
 .section {
     padding: 60px 8%;
@@ -218,7 +216,7 @@ nav a:hover {
 
 .products {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3,minmax(0,1fr));
     gap: 25px;
 }
 
@@ -310,17 +308,9 @@ nav a:hover {
     transform: scale(1.12);
 }
 
-.pink {
-    background: #ff9dbd;
-}
-
-.yellow {
-    background: #ffe17b;
-}
-
-.cream {
-    background: #f1dfc7;
-}
+.pink { background: #ff9dbd; }
+.yellow { background: #ffe17b; }
+.cream { background: #f1dfc7; }
 
 .add-btn {
     width: 100%;
@@ -329,7 +319,7 @@ nav a:hover {
     border-radius: 13px;
     background: #ff91b5;
     color: white;
-    font: 900 14px 'Nunito', sans-serif;
+    font: 900 14px 'Nunito',sans-serif;
     cursor: pointer;
 }
 
@@ -390,7 +380,7 @@ nav a:hover {
     background: #ffe17b;
     color: #725527;
     border-radius: 13px;
-    font: 900 15px 'Nunito', sans-serif;
+    font: 900 15px 'Nunito',sans-serif;
     cursor: pointer;
 }
 
@@ -414,7 +404,7 @@ footer strong {
 
 /* RESPONSIVE */
 
-@media (max-width: 900px) {
+@media(max-width:900px) {
     header {
         padding: 15px 5%;
     }
@@ -433,18 +423,14 @@ footer strong {
     }
 
     .products {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2,minmax(0,1fr));
     }
 }
 
-@media (max-width: 600px) {
+@media(max-width:600px) {
     header {
         align-items: flex-start;
         flex-direction: column;
-    }
-
-    nav {
-        width: 100%;
     }
 
     .hero {
@@ -488,8 +474,6 @@ footer strong {
 
 <body>
 
-<!-- HEADER -->
-
 <header>
     <div class="logo">Velvet <span>Set ♡</span></div>
 
@@ -498,29 +482,18 @@ footer strong {
         <a href="#shop">Shop</a>
         <a href="#cart">Keranjang</a>
         <a href="login.html" id="login-link">Login</a>
-
-        <button class="theme-btn" onclick="toggleTheme()">
-            🎨 Tema
-        </button>
-
+        <button class="theme-btn" onclick="toggleTheme()">🎨 Tema</button>
         <button class="cart-btn" onclick="scrollToCart()">
             🛍️ <span id="cart-count">0</span>
         </button>
     </nav>
 </header>
 
-<!-- HALAMAN DEPAN -->
-
 <section class="hero" id="home">
-
     <div class="hero-text">
-
         <span class="badge">🎀 YOUR DAILY CUTE OUTFIT</span>
 
-        <h1>
-            Stay Cute,<br>
-            <span>Stay Velvet!</span>
-        </h1>
+        <h1>Stay Cute,<br><span>Stay Velvet!</span></h1>
 
         <p>
             Temukan cardigan favoritmu dengan warna pastel yang manis.
@@ -528,24 +501,16 @@ footer strong {
             Pilih gaya yang paling menggambarkan dirimu!
         </p>
 
-        <a href="#shop" class="shop-btn">
-            Explore Collection ♡
-        </a>
-
+        <a href="#shop" class="shop-btn">Explore Collection ♡</a>
     </div>
 
-    <!-- GAMBAR ICON.JPG -->
-
+    <!-- GAMBAR DEPAN DARI assets/images/icon.jpg -->
     <div class="hero-art">
-        <img
-            src="assets/image/icon.jpg"
-            alt="Velvet Set"
-        >
+        <img src="assets/images/icon.jpg"
+             alt="Velvet Set"
+             onerror="this.onerror=null;this.alt='Gambar icon.jpg tidak ditemukan';">
     </div>
-
 </section>
-
-<!-- FITUR TOKO -->
 
 <div class="features">
     <div class="feature">🎀 Cute Style</div>
@@ -554,10 +519,7 @@ footer strong {
     <div class="feature">🌼 Made for You</div>
 </div>
 
-<!-- KOLEKSI PRODUK -->
-
 <section class="section" id="shop">
-
     <div class="section-title">
         <h2>Our Sweet Collection ♡</h2>
         <p>Cardigan manis untuk menemani hari-harimu.</p>
@@ -565,10 +527,7 @@ footer strong {
 
     <div class="products" id="product-list"></div>
 
-    <!-- KERANJANG BELANJA -->
-
     <div class="cart-section" id="cart">
-
         <h3>🛍️ Keranjang Belanja</h3>
 
         <div id="cart-items">
@@ -584,12 +543,8 @@ footer strong {
         <button class="checkout-btn" onclick="checkout()">
             Checkout via WhatsApp ♡
         </button>
-
     </div>
-
 </section>
-
-<!-- FOOTER -->
 
 <footer>
     <strong>Velvet Set ♡</strong><br>
@@ -598,83 +553,18 @@ footer strong {
 </footer>
 
 <script>
-
-/* DATA PRODUK */
-
 const products = [
-    {
-        id: 1,
-        name: 'Lovely Knit Cardigan',
-        price: 89000,
-        description: 'Cardigan rajut lembut dengan gaya feminin.',
-        label: 'BEST SELLER'
-    },
-    {
-        id: 2,
-        name: 'Buttercup Cardigan',
-        price: 99000,
-        description: 'Model simpel dengan nuansa pastel ceria.',
-        label: 'NEW ARRIVAL'
-    },
-    {
-        id: 3,
-        name: 'Ribbon Cozy Cardigan',
-        price: 109000,
-        description: 'Cardigan cozy untuk penampilan yang manis.',
-        label: 'FAVORITE'
-    },
-    {
-        id: 4,
-        name: 'Sweet Blossom Cardigan',
-        price: 95000,
-        description: 'Pilihan manis untuk outfit sehari-hari.',
-        label: 'CUTE PICK'
-    },
-    {
-        id: 5,
-        name: 'Cloud Nine Cardigan',
-        price: 105000,
-        description: 'Tampilan lembut yang nyaman dipadukan.',
-        label: 'SOFT STYLE'
-    },
-    {
-        id: 6,
-        name: 'Peachy Day Cardigan',
-        price: 99000,
-        description: 'Cardigan cantik untuk hari yang ceria.',
-        label: 'LOVELY'
-    },
-    {
-        id: 7,
-        name: 'Sugarplum Cardigan',
-        price: 115000,
-        description: 'Sentuhan manis untuk koleksi favoritmu.',
-        label: 'TRENDING'
-    },
-    {
-        id: 8,
-        name: 'Daisy Knit Cardigan',
-        price: 100000,
-        description: 'Gaya simpel dengan nuansa feminin.',
-        label: 'DAILY WEAR'
-    },
-    {
-        id: 9,
-        name: 'Rosy Mood Cardigan',
-        price: 110000,
-        description: 'Warna lembut untuk gaya yang playful.',
-        label: 'NEW STYLE'
-    },
-    {
-        id: 10,
-        name: 'Honey Milk Cardigan',
-        price: 120000,
-        description: 'Cardigan cozy untuk melengkapi gayamu.',
-        label: 'SPECIAL PICK'
-    }
+    {id:1,name:'Lovely Knit Cardigan',price:89000,description:'Cardigan rajut lembut dengan gaya feminin.',label:'BEST SELLER'},
+    {id:2,name:'Buttercup Cardigan',price:99000,description:'Model simpel dengan nuansa pastel ceria.',label:'NEW ARRIVAL'},
+    {id:3,name:'Ribbon Cozy Cardigan',price:109000,description:'Cardigan cozy untuk penampilan yang manis.',label:'FAVORITE'},
+    {id:4,name:'Sweet Blossom Cardigan',price:95000,description:'Pilihan manis untuk outfit sehari-hari.',label:'CUTE PICK'},
+    {id:5,name:'Cloud Nine Cardigan',price:105000,description:'Tampilan lembut yang nyaman dipadukan.',label:'SOFT STYLE'},
+    {id:6,name:'Peachy Day Cardigan',price:99000,description:'Cardigan cantik untuk hari yang ceria.',label:'LOVELY'},
+    {id:7,name:'Sugarplum Cardigan',price:115000,description:'Sentuhan manis untuk koleksi favoritmu.',label:'TRENDING'},
+    {id:8,name:'Daisy Knit Cardigan',price:100000,description:'Gaya simpel dengan nuansa feminin.',label:'DAILY WEAR'},
+    {id:9,name:'Rosy Mood Cardigan',price:110000,description:'Warna lembut untuk gaya yang playful.',label:'NEW STYLE'},
+    {id:10,name:'Honey Milk Cardigan',price:120000,description:'Cardigan cozy untuk melengkapi gayamu.',label:'SPECIAL PICK'}
 ];
-
-/* VARIABEL */
 
 let selectedColors = {};
 let cart = [];
@@ -682,8 +572,6 @@ let cart = [];
 products.forEach(product => {
     selectedColors[product.id] = 'Pink';
 });
-
-/* FORMAT RUPIAH */
 
 function formatRupiah(number) {
     return new Intl.NumberFormat('id-ID', {
@@ -693,92 +581,58 @@ function formatRupiah(number) {
     }).format(number);
 }
 
-/* MENAMPILKAN PRODUK */
-
+/* MENAMPILKAN 10 PRODUK */
 function renderProducts() {
-
     document.getElementById('product-list').innerHTML =
         products.map(product => `
-
-        <article class="product" data-id="${product.id}">
-
-            <div class="product-image">
-
-                <span class="new-label">
-                    ${product.label}
-                </span>
-
-                <img
-                    src="assets/image/cardigan${product.id}.jpg"
-                    alt="${product.name}"
-                    loading="lazy"
-                    onerror="this.onerror=null; this.src='assets/image/icon.jpg';"
-                >
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>${product.name}</h3>
-
-                <p class="description">
-                    ${product.description}
-                </p>
-
-                <div class="price">
-                    ${formatRupiah(product.price)}
+            <article class="product" data-id="${product.id}">
+                <div class="product-image">
+                    <span class="new-label">${product.label}</span>
+                    <img
+                        src="assets/images/cardigan${product.id}.jpg"
+                        alt="${product.name}"
+                        loading="lazy"
+                        onerror="this.onerror=null;this.src='assets/images/icon.jpg';"
+                    >
                 </div>
 
-                <p class="color-title">Pilih warna:</p>
+                <div class="product-info">
+                    <h3>${product.name}</h3>
+                    <p class="description">${product.description}</p>
+                    <div class="price">${formatRupiah(product.price)}</div>
 
-                <div class="colors">
+                    <p class="color-title">Pilih warna:</p>
 
-                    <button
-                        class="color-option pink active"
-                        aria-label="Pink"
-                        title="Pink"
-                        onclick="selectColor(${product.id}, 'Pink', this)">
+                    <div class="colors">
+                        <button class="color-option pink active"
+                            aria-label="Pink" title="Pink"
+                            onclick="selectColor(${product.id},'Pink',this)"></button>
+
+                        <button class="color-option yellow"
+                            aria-label="Kuning" title="Kuning"
+                            onclick="selectColor(${product.id},'Kuning',this)"></button>
+
+                        <button class="color-option cream"
+                            aria-label="Cream" title="Cream"
+                            onclick="selectColor(${product.id},'Cream',this)"></button>
+                    </div>
+
+                    <button class="add-btn"
+                        onclick="addToCart(${product.id})">
+                        + Tambah ke Keranjang
                     </button>
-
-                    <button
-                        class="color-option yellow"
-                        aria-label="Kuning"
-                        title="Kuning"
-                        onclick="selectColor(${product.id}, 'Kuning', this)">
-                    </button>
-
-                    <button
-                        class="color-option cream"
-                        aria-label="Cream"
-                        title="Cream"
-                        onclick="selectColor(${product.id}, 'Cream', this)">
-                    </button>
-
                 </div>
-
-                <button
-                    class="add-btn"
-                    onclick="addToCart(${product.id})">
-                    + Tambah ke Keranjang
-                </button>
-
-            </div>
-
-        </article>
-
-    `).join('');
+            </article>
+        `).join('');
 }
 
 /* GANTI TEMA */
-
 function toggleTheme() {
     document.body.classList.toggle('yellow-theme');
 }
 
 /* PILIH WARNA */
-
 function selectColor(id, color, button) {
-
     selectedColors[id] = color;
 
     const card = document.querySelector(
@@ -792,10 +646,8 @@ function selectColor(id, color, button) {
     button.classList.add('active');
 }
 
-/* TAMBAH KE KERANJANG */
-
+/* TAMBAH PRODUK */
 function addToCart(id) {
-
     const product = products.find(item => item.id === id);
     const color = selectedColors[id];
 
@@ -816,19 +668,11 @@ function addToCart(id) {
     }
 
     renderCart();
-
-    alert(
-        product.name +
-        ' warna ' +
-        color +
-        ' ditambahkan ke keranjang! ♡'
-    );
+    alert(product.name + ' warna ' + color + ' ditambahkan ke keranjang! ♡');
 }
 
-/* UBAH JUMLAH PRODUK */
-
+/* UBAH JUMLAH */
 function changeQuantity(id, color, amount) {
-
     const item = cart.find(item =>
         item.id === id && item.color === color
     );
@@ -847,90 +691,63 @@ function changeQuantity(id, color, amount) {
 }
 
 /* TAMPILKAN KERANJANG */
-
 function renderCart() {
-
     const container = document.getElementById('cart-items');
 
     const count = cart.reduce(
-        (sum, item) => sum + item.quantity,
-        0
+        (sum, item) => sum + item.quantity, 0
     );
 
     const total = cart.reduce(
-        (sum, item) => sum + item.price * item.quantity,
-        0
+        (sum, item) => sum + item.price * item.quantity, 0
     );
 
     document.getElementById('cart-count').textContent = count;
-
-    document.getElementById('cart-total').textContent =
-        formatRupiah(total);
+    document.getElementById('cart-total').textContent = formatRupiah(total);
 
     if (!cart.length) {
-
         container.innerHTML = `
             <p class="empty">
                 Keranjangmu masih kosong, yuk pilih cardigan! ♡
             </p>
         `;
-
         return;
     }
 
     container.innerHTML = cart.map(item => `
-
         <div class="cart-item">
-
             <div>
-
                 <strong>${item.name}</strong><br>
-
                 <small>Warna: ${item.color}</small><br>
-
-                <small>
-                    ${formatRupiah(item.price)} × ${item.quantity}
-                </small>
-
+                <small>${formatRupiah(item.price)} × ${item.quantity}</small>
             </div>
 
             <div class="quantity-controls">
-
-                <button
-                    class="remove-btn"
-                    onclick="changeQuantity(${item.id}, '${item.color}', -1)">
+                <button class="remove-btn"
+                    onclick="changeQuantity(${item.id},'${item.color}',-1)">
                     − Hapus
                 </button>
 
                 <span>${item.quantity}</span>
 
-                <button
-                    class="remove-btn"
-                    onclick="changeQuantity(${item.id}, '${item.color}', 1)">
+                <button class="remove-btn"
+                    onclick="changeQuantity(${item.id},'${item.color}',1)">
                     +
                 </button>
-
             </div>
-
         </div>
-
     `).join('');
 }
 
-/* SCROLL KE KERANJANG */
-
+/* MENUJU KERANJANG */
 function scrollToCart() {
-
     document.getElementById('cart').scrollIntoView({
         behavior: 'smooth'
     });
-
 }
 
 /* CHECKOUT WHATSAPP */
-
 function checkout() {
-
     if (!cart.length) {
         alert('Keranjang masih kosong. Pilih cardigan dulu ya! ♡');
         return;
@@ -941,8 +758,7 @@ function checkout() {
     );
 
     const total = cart.reduce(
-        (sum, item) => sum + item.price * item.quantity,
-        0
+        (sum, item) => sum + item.price * item.quantity, 0
     );
 
     const message =
@@ -950,11 +766,7 @@ function checkout() {
         `${lines.join('\n')}\n\n` +
         `Total: ${formatRupiah(total)}`;
 
-    /*
-       GANTI NOMOR DI BAWAH DENGAN NOMOR WHATSAPP TOKO KAMU.
-       Gunakan kode negara 62 tanpa tanda +.
-    */
-
+    /* GANTI DENGAN NOMOR WHATSAPP TOKO KAMU */
     const whatsappNumber = '6281234567890';
 
     const whatsappURL =
@@ -964,45 +776,32 @@ function checkout() {
 }
 
 /* LOGIN DAN LOGOUT */
-
 function updateLoginLink() {
-
     const link = document.getElementById('login-link');
 
     if (localStorage.getItem('velvetLoggedIn') === 'true') {
-
         link.textContent = 'Logout';
         link.href = '#';
 
         link.onclick = function(event) {
-
             event.preventDefault();
-
             localStorage.removeItem('velvetLoggedIn');
             localStorage.removeItem('velvetUsername');
-
             alert('Kamu sudah logout.');
-
             window.location.reload();
         };
-
     } else {
-
         link.textContent = 'Login';
         link.href = 'login.html';
         link.onclick = null;
-
     }
 }
 
 /* JALANKAN WEBSITE */
-
 renderProducts();
 updateLoginLink();
 renderCart();
-
 </script>
 
 </body>
 </html>
-```
